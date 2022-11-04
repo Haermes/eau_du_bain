@@ -1,1 +1,71 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="achat_css.css">
+    <title>Produit X</title>
+</head>
+<body>
+    <div class="flex">
+        <div id="caroussel">
+            <div class="diaporama">
+                <img src="eau-de-bain.jpg" alt="...">
+                <img src="eau-de-bain2.jpg" alt="...">
+            </div>
+        </div>
+        <div>
+            <h2><b>Nom du produit</b></h2>
+            <h3>Prix</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div class="quantite">
+                <form>
+                    <input id="moins" type="button" value="-"/>
+                    <input id ="result" type="texte" value="1" maxlength="2" />
+                    <input id="plus" type="button" value="+" />
+                </form>
+                <script>
+                    var res = document.getElementById('result');
+                    result = parseInt(res.value,10);
+    
+                    var plus = document.getElementById('plus');
+                    var moins = document.getElementById('moins');
+    
+                        // prendre en compte la modification du nombre au clavier
+                        res.addEventListener('blur', function() {
+                        result = document.getElementById('result');
+                                result = parseInt(result.value,10);
+                        });
+                        
+                        // boutton +
+                        plus.addEventListener('click', function() {
+                        if(result >= 0 && result < 99){
+                        result++;
+                        document.getElementById('result').value= result;
+                        }
+                        });
+                        
+                        // boutton -
+                        moins.addEventListener('click', function() {
+                        if(result > 0 && result <= 99){
+                        result--;
+                        document.getElementById('result').value= result;
+                        }
+                        });
+                </script>
+                <select class="taille">
+                    <option value="25">25 cl</option>
+                    <option value="50">50 cl</option>
+                    <option value="75">75 cl</option>
+                    <option value="100">100 cl</option>
+                </select>
+            </div>
+            <p class="precision">La quantité et la taille du produit peut encore être modifié</p>
+            <div class="acheter">
+                <input class="bouton black" type="button" value="Ajouter au panier">
+                <input class="bouton blue" type="button" value="Acheter maintenant">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
